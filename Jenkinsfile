@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Component test'){
             when{
-                brach 'release'
+                branch 'release'
             }
             steps{
                 sh 'npm run component-test'
