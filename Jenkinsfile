@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+        stage('unit test'){
+            when {
+                branch 'develop'
+            }
+            steps{
+                sh 'npm run unit-test'
+            }
+        }
         stage('Component test'){
             steps{
                 sh 'npm run component-test'
