@@ -22,6 +22,7 @@ pipeline {
         stage('Security test'){
             steps{
                 sh 'cat security.conf'
+                sh 'echo El test de seguridad termino correctamente'
             }
         }
     }
