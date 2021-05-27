@@ -22,6 +22,9 @@ pipeline {
             }
         }
         stage('Component test'){
+            when{
+                brach 'release'
+            }
             steps{
                 sh 'npm run component-test'
             }
