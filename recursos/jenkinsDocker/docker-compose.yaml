@@ -1,0 +1,23 @@
+version: '3'
+services:
+    jenkins:
+        image: jenkins/docker
+        build:
+            context: .
+        ports:
+            - 8080:8080
+            - 50000:50000
+        container_name: jenkins 
+        volumes:
+            - $PWD/jenkins_home:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - net
+networks:
+    net: 
+
+# finally inside container you should make 
+# 1. docker-compose up -d 
+# 2. if not run, type: sudo chown 1000 jenkins_home ..then docker-compose up -d 
+# 3. docker exec -it --user root jenkins bash
+# 4. chown jenkins /var/run/docker.sock 
