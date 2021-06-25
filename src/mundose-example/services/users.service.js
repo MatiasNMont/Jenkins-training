@@ -84,7 +84,7 @@ module.exports = {
 			async handler(ctx) {
 				const dni = +ctx.params.dni;
 				const doc = await this.adapter.findOne({dni: dni});
-				console.log(doc.amountAvailable)
+				console.log(doc.amountAvailable);
 				//const doc = await this.adapter.updateById(ctx.params.id, { $inc: { quantity: ctx.params.value } });
 				const json = await this.transformDocuments(ctx, ctx.params, doc);
 				await this.entityChanged("updated", json, ctx);
@@ -94,6 +94,15 @@ module.exports = {
 					json["Message"] = "ERROR: El usuario tiene fondos para transacciones";
 				}
 				return json.Message;
+			}
+		},
+		health: {
+			rest: {
+				method: "GET",
+				path: "health"
+			},
+			async handler(ctx){
+				return "Estoy healthy";
 			}
 		},
 		getAvailable: {
