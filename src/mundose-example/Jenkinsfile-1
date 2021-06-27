@@ -9,8 +9,6 @@ pipeline {
         stage('Build') {
             steps {
                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
-                   sh 'rm package-lock.json'
-                   sh 'git checkout develop'
                    sh "npm install"
                 }
             }
