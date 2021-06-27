@@ -5,7 +5,6 @@ pipeline {
         registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
-	checkout scm
 	tools { nodejs 'node' }
     agent any
     stages {
@@ -22,6 +21,9 @@ pipeline {
             }
         }
         stage('Deploy') {
+		node {
+       	 checkout scm
+    	}
             steps {
                 dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/"){
 				    sh 'pwd && ls'
