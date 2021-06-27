@@ -22,8 +22,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-			    sh "echo $WORKSPACE"
-				sh 'pwd && ls'
+			    ws("${WORKSPACE}/src/mundose-example"){
+					sh 'ls'
+				}
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
