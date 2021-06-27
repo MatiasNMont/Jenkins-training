@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-			   sh 'cd src/mundose-example'
+			   sh 'cd src/mundose-example && npm run lint'
                sh "npm run lint"
                sh 'npm run test'
             }
