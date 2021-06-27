@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-			    dir("$WORKSPACE/src/mundose-examples"){
+			    dir("$WORKSPACE/src/mundose-example"){
 					sh 'ls'
 				}
 			    sh "echo $WORKSPACE"
