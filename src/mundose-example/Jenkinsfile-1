@@ -8,7 +8,7 @@ pipeline {
     agent {
         label {
             label ""
-            customWorkspace "${WORKSPACE}/src/mundose-example"
+            customWorkspace "${env.WORKSPACE}/src/mundose-example"
         }
     }
     stages {
