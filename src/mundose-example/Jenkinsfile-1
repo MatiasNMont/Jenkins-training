@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
+			   	   sh 'pwd'
 			   	   sh 'cd src/mundose-example && npm install'
                 }
             }
