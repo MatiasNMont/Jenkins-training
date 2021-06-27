@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
 			   sh 'pwd'
-			   sh 'cd src/mundose-example && npm install'
+			   sh 'cd src/mundose-example && npm install --only=dev'
             }
         }
         stage('Test') {
