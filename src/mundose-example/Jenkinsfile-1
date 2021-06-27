@@ -22,17 +22,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/"){
-				    sh 'pwd && ls'
-                    script {
+				sh 'pwd && ls'
+                script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
-                 script {
+                script {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                      }
-                   }
-                }
+                }   
             }
         }
     }
