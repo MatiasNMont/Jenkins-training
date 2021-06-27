@@ -5,12 +5,7 @@ pipeline {
         dockerImage = ''
     }
 	tools { nodejs 'node' }
-    agent {
-        label {
-            label ""
-            customWorkspace "${env.WORKSPACE}/src/mundose-example"
-        }
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
