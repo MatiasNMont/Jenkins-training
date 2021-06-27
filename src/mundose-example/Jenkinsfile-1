@@ -22,6 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+			    sh "echo $WORKSPACE"
 			    sh 'ls'
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
