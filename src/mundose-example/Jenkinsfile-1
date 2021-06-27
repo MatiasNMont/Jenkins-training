@@ -9,7 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
-                   sh "npm install --unsafe-perm"
+				   echo "unsafe-perm = true" >> ~/.npmrc
+                   sh "npm install"
 			   }
             }
         }
