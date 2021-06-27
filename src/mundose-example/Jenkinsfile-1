@@ -3,6 +3,7 @@ pipeline {
         registry = "matiasnmont/mundose-jenkins"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
+		WORKSPACE = '$WORKSPACE/src/mundose-example'
     }
 	tools { nodejs 'node' }
     agent any
