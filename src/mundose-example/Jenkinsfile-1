@@ -1,9 +1,9 @@
-
 pipeline {
     environment {
         registry = "matiasnmont/mundose-jenkins"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
+        WORKSPACE="${WORKSPACE}/src/mundose-example"
     }
 	tools { nodejs 'node' }
     agent any
@@ -22,19 +22,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-			    checkout scm: [
-                        $class: 'GitSCM',
-                        branches: scm.branches,
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [[$class: 'SubmoduleOption',
-                                      disableSubmodules: false,
-                                      parentCredentials: false,
-                                      recursiveSubmodules: true,
-                                      reference: '',
-                                      trackingSubmodules: false]],
-                        submoduleCfg: [],
-                        userRemoteConfigs: scm.userRemoteConfigs
-                ]
                 dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/"){
 				    sh 'pwd && ls'
                     script {
@@ -43,8 +30,8 @@ pipeline {
                  script {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
-                    }
-                 }
+                     }
+                   }
                 }
             }
         }
