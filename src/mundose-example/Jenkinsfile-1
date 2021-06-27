@@ -3,7 +3,6 @@ pipeline {
         registry = "matiasnmont/mundose-jenkins"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
-        WORKSPACE="${WORKSPACE}/src/mundose-example/src"
     }
 	tools { nodejs 'node' }
     agent any
@@ -22,6 +21,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+			    dir("$WORKSPACE/src/mundose-examples"){
+					sh 'ls'
+				}
 			    sh "echo $WORKSPACE"
 			    sh 'ls'
                 script {
