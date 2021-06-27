@@ -1,3 +1,4 @@
+
 pipeline {
     environment {
         registry = "matiasnmont/mundose-jenkins"
@@ -9,17 +10,18 @@ pipeline {
         stage('Build') {
             steps {
                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
-				   sh "echo unsafe-perm=true" >> ~/.npmrc"
+                   sh 'echo "unsafe-perm = true" >> ~/.npmrc'
                    sh "npm install"
-			   }
+                }
             }
         }
         stage('Test') {
             steps {
-                sh "pwd"
-                sh "npm run lint"
-                sh "npm run test"
-
+                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
+                   sh 'git checkout develop'
+                   sh "npm run lint"
+                   sh 'npm run test'
+                }
             }
         }
         stage('Deploy') {
