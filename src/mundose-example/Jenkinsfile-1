@@ -10,7 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
-                   sh "npm install -wd ${env.WORKSPACE}/Jenkins-training/src/mundose-example/"
+			   	   sh 'pwd'
+				   sh 'ls'
                 }
             }
         }
