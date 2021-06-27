@@ -16,6 +16,9 @@ pipeline {
         }
         stage('Test') {
             steps {
+			   dir('/src/mundose-example'){
+			   	  sh 'pwd'
+			   }
 			   sh 'cd src/mundose-example && npm run lint'
                sh "npm run lint"
                sh 'npm run test'
