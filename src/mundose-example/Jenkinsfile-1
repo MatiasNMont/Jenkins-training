@@ -5,6 +5,7 @@ pipeline {
         registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
+	checkout scm
 	tools { nodejs 'node' }
     agent any
     stages {
