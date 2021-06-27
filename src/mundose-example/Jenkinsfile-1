@@ -21,9 +21,6 @@ pipeline {
             }
         }
         stage('Deploy') {
-		node {
-       	 checkout scm
-    	}
             steps {
                 dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/"){
 				    sh 'pwd && ls'
