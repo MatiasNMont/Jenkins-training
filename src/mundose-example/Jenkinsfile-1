@@ -16,9 +16,8 @@ pipeline {
         stage('Test') {
             steps {
                 dir("${env.WORKSPACE}/Jenkins-training/src/mundose-example/") {
-                   sh 'git checkout develop'
                    sh "npm run lint"
-                   sh 'npm run test'
+                   sh "npm run test"
                 }
             }
         }
