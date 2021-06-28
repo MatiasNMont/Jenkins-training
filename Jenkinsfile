@@ -3,13 +3,12 @@ pipeline {
     stages {
         stage('install dependencies'){
             steps{
-                sh 'apt update'
-                sh 'apt install -y nodejs npm'
+                sh 'echo install dependencies'
             }
         }
         stage('Build packages'){
             steps{
-                sh 'npm install'
+                sh 'echo build Package'
             }
         }
 
@@ -18,7 +17,7 @@ pipeline {
                 branch 'develop'
             }
             steps{
-                sh 'npm run unit-test'
+                sh 'echo run unit-test'
             }
         }
         stage('Component test'){
@@ -26,15 +25,13 @@ pipeline {
                 branch 'release'
             }
             steps{
-                sh 'npm run component-test'
+                sh 'echo run component-test'
             }
         }
 
         stage('Security test'){
             steps{
-                sh 'cat security.conf'
                 sh 'echo El test de seguridad termino correctamente'
             }
         }
     }
-}
