@@ -52,4 +52,3 @@ describe("Test 'products' service", () => {
 	});
 
 });
-
