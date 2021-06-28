@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps {
 			   dir("$WORKSPACE/src/mundose-example"){
+			     sh 'rm package-lock.json'
 			     sh 'npm install --only=dev'
 			   }
             }
