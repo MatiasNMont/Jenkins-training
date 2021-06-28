@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-			   sh 'pwd && ls'
-			   sh 'cd src/mundose-example && npm install --only=dev'
+			   dir("$WORKSPACE/src/mundose-example"){
+			     sh 'npm install --only=dev'
+			   }
             }
         }
         stage('Test') {
