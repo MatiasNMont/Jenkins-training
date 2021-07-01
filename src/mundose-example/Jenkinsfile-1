@@ -19,6 +19,7 @@ pipeline {
         stage('Test') {
             steps {
 			   dir("$WORKSPACE/src/mundose-example"){
+			       sh 'echo testing'
 			   		sh "npm run lint"
 					sh "npm run test"
 				}
