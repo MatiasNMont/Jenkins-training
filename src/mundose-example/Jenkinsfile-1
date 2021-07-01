@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps {
 			   dir("$WORKSPACE/src/mundose-example"){
+			   	 sh 'echo buildeando'
 			     sh 'rm package-lock.json'
 			     sh 'npm install'
 			   }
