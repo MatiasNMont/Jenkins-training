@@ -3,8 +3,6 @@ services:
     jenkins:
         image: jenkins/jenkins
         user: root
-        privileged: true
-        command: bash -c "apt-get update && apt-get install -y docker.io && sh && tail -f /dev/null"
         ports:
             - 8080:8080
             - 50000:50000
@@ -16,3 +14,8 @@ services:
             - net
 networks:
     net:
+
+# correr dentro del container 
+# 1. docker exec -it jenkins /bin/bash
+# 2. apt-get update 
+# 3. apt-get install -y docker.io
