@@ -1,14 +1,21 @@
 version: '3'
 services:
     jenkins:
-        image: jenkins/jenkins 
+        image: jenkins/jenkins
+        user: root
         ports:
             - 8080:8080
             - 50000:50000
         container_name: jenkins 
         volumes:
             - $PWD/jenkins_home:/var/jenkins_home 
+            - /var/run/docker.sock:/var/run/docker.sock
         networks:
             - net
 networks:
     net:
+
+# correr dentro del container 
+# 1. docker exec -it jenkins /bin/bash
+# 2. apt-get update 
+# 3. apt-get install -y docker.io
