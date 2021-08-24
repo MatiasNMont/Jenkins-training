@@ -18,7 +18,9 @@ pipeline {
             }
             steps{
                 sh 'echo run unit-test'
+                echo 'ESTE ES EL CAMBIO'
             }
+            
         }
         stage('Component test'){
             when{
