@@ -35,7 +35,7 @@ pipeline {
                         dockerImage.push()
                      }
                    }
-				sh "docker exec -i matiasnmont/mundose-jenkins:latest"
+				sh "docker run matiasnmont/mundose-jenkins:latest"
 				}
             }
         }
