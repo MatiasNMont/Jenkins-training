@@ -28,14 +28,14 @@ pipeline {
             steps {
 			    dir("$WORKSPACE/src/mundose-example"){
 					script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry
                 }
                 script {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                      }
                    }
-				sh "docker exec -i $dockerImage"
+				sh "docker exec -i matiasnmont/mundose-jenkins:latest"
 				}
             }
         }
