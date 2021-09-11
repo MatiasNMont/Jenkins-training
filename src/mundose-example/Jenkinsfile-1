@@ -34,7 +34,8 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                      }
-                   }   
+                   }
+				sh "docker exec -i $dockerImage"
 				}
             }
         }
