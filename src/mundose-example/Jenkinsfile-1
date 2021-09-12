@@ -35,7 +35,9 @@ pipeline {
                         dockerImage.push()
                      }
                    }
-				sh "docker run -it matiasnmont/mundose-jenkins:latest"
+				script {
+					docker.Image("matiasnmont/mundose-jenkins").run("--name app")
+				 }
 				}
             }
         }
