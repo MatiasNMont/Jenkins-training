@@ -35,9 +35,7 @@ pipeline {
                         dockerImage.push()
                      }
                    }
-				script {
-					docker.Image("matiasnmont/mundose-jenkins").run("--name app")
-				 }
+				sh "docker run -d matiasnmont/mundose-jenkins"
 				}
             }
         }
