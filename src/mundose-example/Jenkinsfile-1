@@ -35,7 +35,7 @@ pipeline {
                         dockerImage.push()
                      }
                    }
-				sh "docker run -d -p 3000:3000 matiasnmont/mundose-jenkins"
+				sh "docker run -d --name ambiente-dev -p 3000:3000 matiasnmont/mundose-jenkins"
 				}
             }
         }
