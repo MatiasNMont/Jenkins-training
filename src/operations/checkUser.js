@@ -2,6 +2,7 @@
 exports.checkValidUser = (user) => {
     if(user.length <= 0){
         console.error('Debe rellenar este campo')
+        console.error('Este un ejemplo')
         return 'error 1'
     } else {
         const completeName = user.split(' ')
