@@ -12,6 +12,13 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
         networks:
             - net
+     worker:
+        container_name: worker
+        image: worker
+        build:
+            context: centos7
+        networks:
+            - net
 networks:
     net:
 
