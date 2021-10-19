@@ -1,3 +1,3 @@
 # Jenkins-training
 
-Training en branch develop
+Training en branch develop para cron
